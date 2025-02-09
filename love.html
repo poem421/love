@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Love</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+            background-color: lightcoral;
+            overflow: hidden;
+        }
+        .heart {
+            font-size: 24px;
+            color: red;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 50px; /* Round buttons */
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: lightgray;
+        }
+        .petal {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-image: url('https://example.com/flower-petal.png'); /* Replace with your petal image URL */
+            background-size: cover;
+            opacity: 0;
+            animation: fall 10s infinite;
+        }
+        @keyframes fall {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        .teddy-bear {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function navigate(page) {
+            location.href = page;
+        }
+
+        function createPetals() {
+            for (let i = 0; i < 100; i++) {
+                let petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDelay = Math.random() * 10 + 's';
+                petal.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                document.body.appendChild(petal);
+            }
+        }
+
+        window.onload = createPetals;
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Love Page</h1>
+    <div class="heart">❤️</div>
+    <button onclick="navigate('contact.html')">Go to Contact Page ❤️</button>
+    <img src="teddy-bear.png" alt="Giant Teddy Bear" class="teddy-bear"> <!-- Replace with your teddy bear image URL -->
+    <p>Love is all around us! Cherish every moment.</p>
+</body>
+</html>
